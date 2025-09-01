@@ -1,0 +1,1009 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    /* Colores Principales */
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.35 0 0); 
+    --primary: oklch(0.55 0.15 200); 
+    --primary-foreground: oklch(1 0 0);
+    --accent: oklch(0.75 0.15 120); 
+    --accent-foreground: oklch(1 0 0); 
+
+    /* Colores Secundarios */
+    --secondary: oklch(90.5% 0.182 98.111); 
+    --secondary-foreground: oklch(0.35 0 0); 
+    --secondary-hover: oklch(0.65 0.18 80); 
+    --secondary-hover-foreground: oklch(1 0 0);
+    --muted: oklch(0.99 0.02 120); 
+    --muted-foreground: oklch(0.25 0 0); 
+
+    /* Colores de Componentes */
+    --card: oklch(0.98 0 0); 
+    --card-foreground: oklch(0.35 0 0); 
+    --border: oklch(0.92 0 0); 
+    --input: oklch(1 0 0); 
+    --ring: oklch(0.55 0.15 200 / 0.3);
+
+    /* Colores de Estado */
+    --destructive: oklch(0.55 0.22 25); 
+    --destructive-foreground: oklch(1 0 0); 
+
+    /* Colores para Gráficos */
+    --chart-1: oklch(0.35 0 0); 
+    --chart-2: oklch(0.45 0.12 150);
+    --chart-3: oklch(0.55 0.15 200);
+    --chart-4: oklch(0.65 0.18 80); 
+    --chart-5: oklch(0.75 0.15 120); 
+
+    /* Tamaños de Fuente - Basados en uso semántico */
+
+    /* Textos Base */
+    --font-size-body: 1.6rem; /* 16px - Texto principal por defecto */
+    --font-size-small: 1.4rem; /* 14px - Navegación, formularios */
+    --font-size-tiny: 1.2rem; /* 12px - Labels, badges, reviews */
+
+    /* Textos Destacados */
+    --font-size-lead: 1.8rem; /* 18px - Subtítulos, precios */
+    --font-size-large: 2rem; /* 20px - Títulos de cards, precios destacados */
+
+    /* Títulos */
+    --font-size-heading-small: 2.4rem; /* 24px - Títulos de sección, estadísticas */
+    --font-size-heading-medium: 3rem; /* 30px - Títulos principales de sección */
+    --font-size-heading-large: 3.6rem; /* 36px - Títulos de hero section */
+    --font-size-heading-hero: 6rem; /* 60px - Hero principal (desktop) */
+
+    /* Uso Específico */
+    --font-size-navigation: var(--font-size-small); /* 14px - Menú navegación */
+    --font-size-button: var(--font-size-body); /* 16px - Botones */
+    --font-size-form: var(--font-size-small); /* 14px - Inputs y labels */
+    --font-size-price: var(--font-size-lead); /* 18px - Precios productos */
+    --font-size-card-title: var(--font-size-large); /* 20px - Títulos de cards */
+    --font-size-section-title: var(--font-size-heading-medium); /* 30px - Títulos sección */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.layout{
+    display: grid;
+    grid-template-rows: auto 1fr auto;   /* header | contenido | footer */
+    grid-template-columns: 1fr;  
+    height: 100vh;
+}
+
+header {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 1fr;
+    width: 100%;
+    background: linear-gradient(to bottom right, #0d9488, #14b8a6, #0891b2);
+    gap: 3rem;
+    padding: 0 2rem;
+    
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    padding-top: 2rem;
+}
+
+.main-nav{
+    display: flex;
+    width: 70%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5rem;
+
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: fit-content;
+}
+
+.title-container i{
+    font-size: var(--font-size-large);
+    color: var(--primary-foreground);
+}
+
+
+.title-container h1{
+    font-size: var(--font-size-large);
+    font-family: 'Geist', sans-serif;
+    color: var(--primary-foreground);
+}
+
+.nav-links, .nav-icons {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    flex-flow: row wrap;
+    min-width: fit-content;
+    flex: 0 1 auto;
+}
+
+.nav-icons i{
+    font-size: var(--font-size-large);
+    color: var(--primary-foreground);
+    cursor: pointer;
+}
+
+.nav-links a, .nav-icons a {
+    text-decoration: none;
+    color: var(--primary-foreground);
+    font-size: var(--font-size-navigation);
+    font-family: 'Geist', sans-serif;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-icons i:hover {
+    color: var(--secondary);
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-intro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 3rem;
+    padding: 5rem 4rem;
+}
+
+.hero-desc{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    flex: 1 1 40%;
+    min-width: 35rem;
+    gap: 3rem;
+}
+
+.hero-desc h1{
+    font-size: var(--font-size-heading-hero);
+    font-family: 'Geist', sans-serif;
+    color: var(--primary-foreground);
+    line-height: 0.8;
+    letter-spacing: -0.2rem;
+    padding: 1rem 0;
+}
+
+.hero-desc h1:nth-child(3) {
+    color: var(--secondary);
+}
+
+.hero-desc p{
+    font-size: var(--font-size-lead);
+    font-family: 'Geist', sans-serif;
+    color: var(--primary-foreground);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+.hero-graphics{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 40%;
+    min-width: 35rem;
+    align-self: stretch;
+}
+
+.hero-graphics figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border-radius: 2rem;
+    aspect-ratio: 1;
+}
+
+.hero-graphics img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4rem;    
+    padding: 2rem;
+
+}
+
+.primary-bttn{
+    display: flex;
+    width: fit-content;
+    padding: 1rem 4rem;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-size: var(--font-size-button);
+    font-family: 'Geist', sans-serif;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    gap: 1rem;
+    align-content: center;
+    transition: all 0.5s ease-in-out;
+} 
+
+.primary-bttn:hover{
+    background-color: var(--secondary-hover);
+    color: var(--secondary-hover-foreground);
+    i{
+        animation: bounce 0.6s forwards;
+    }
+}
+
+.secondary-bttn{
+    display: flex;
+    width: fit-content;
+    padding: 1rem 4rem;
+    background-color: transparent;
+    color: var(--secondary-foreground);
+    font-size: var(--font-size-button);
+    font-family: 'Geist', sans-serif;
+    border: 0.2rem solid var(--secondary);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    gap: 1rem;
+    align-content: center;
+    transition: all 0.5s ease-in-out;
+} 
+
+.secondary-bttn:hover{
+    background-color: var(--secondary-hover);
+    color: var(--secondary-hover-foreground);
+}
+
+main{
+    padding: 5rem 0 0 0;
+}
+
+.trend-section{
+    display: flex;
+    background-color: var(--background);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.trend-grid{
+    display: grid;
+    width: 80%;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    list-style: none;
+}
+
+.trend-grid li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    color: var(--primary-foreground);
+    font-family: 'Geist', sans-serif;
+    text-align: center;
+    padding: 3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.trend-grid li h3{
+    font-size: var(--font-size-heading-small);
+    margin-bottom: 1rem;
+}
+.trend-grid li p{
+    font-size: var(--font-size-tiny);
+}
+
+.trend-grid li::before,
+.trend-grid li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.trend-grid li:nth-child(1)::after{
+    background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.2), rgba(37, 99, 235, 0.3), rgba(147, 51, 234, 0.2));
+    opacity: 0;
+}
+
+.trend-grid li:nth-child(2)::after{
+    background: linear-gradient(to bottom right, rgba(244, 114, 182, 0.2), rgba(168, 85, 247, 0.3), rgba(251, 191, 36, 0.2));
+    opacity: 0;
+}
+
+.trend-grid li:nth-child(3)::after{
+    background: linear-gradient(to bottom right, rgba(196, 181, 253, 0.2), rgba(236, 72, 153, 0.3), rgba(251, 113, 133, 0.2));
+    opacity: 0;
+}
+
+.trend-grid li:nth-child(4)::after{
+    background: linear-gradient(to bottom right, rgba(37, 99, 235, 0.2), rgba(99, 102, 241, 0.3), rgba(71, 85, 105, 0.2));    opacity: 0;
+}
+
+.trend-grid li:hover::before {
+    opacity: 0;
+}
+
+.trend-grid li:hover::after {
+    opacity: 1;
+}
+
+.trend-grid li:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    background: linear-gradient(to bottom right, rgba(8, 145, 178, 0.9), rgba(8, 145, 178, 0.7), rgba(132, 204, 22, 0.8));
+    transition: background 0.5s ease-in-out;
+}
+
+.trend-grid li:nth-child(2) {
+    background: linear-gradient(to bottom right, rgba(132, 204, 22, 0.8), rgba(132, 204, 22, 0.6), rgba(250, 204, 21, 0.7));
+    transition: background 0.5s ease-in-out;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.trend-grid li:nth-child(3) {
+    background: linear-gradient(to bottom right, rgba(244, 114, 182, 0.8), rgba(251, 113, 133, 0.7), rgba(248, 113, 113, 0.6));
+    transition: background 0.5s ease-in-out;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.trend-grid li:nth-child(4) {
+    background: linear-gradient(to bottom right, rgba(71, 85, 105, 0.9), rgba(100, 116, 139, 0.8), rgba(82, 82, 91, 0.7));
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+}
+
+.product-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 2rem;
+    gap: 3rem;
+    padding: 5rem 0;
+}
+
+.product-section h2{
+    font-size: var(--font-size-heading-large);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+    text-align: center;
+}
+
+.product-section .products-grid{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+    list-style: none;
+}
+
+.products-grid article{
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.058);
+    overflow: hidden;
+}
+
+.products-grid figure{
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 2rem;
+    height: 50rem;
+}
+
+.products-grid img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.products-grid h3{
+    font-size: var(--font-size-button);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+    padding: 0 2rem;
+}
+
+.products-grid p{
+    font-size: var(--font-size-tiny);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+    padding: 0 2rem 2rem 2rem;
+}
+
+.article-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.article-action{
+    display: flex;;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 2rem 2rem;
+    width: 100%;
+}
+
+.article-action button{
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+}
+
+.article-action button i{
+    font-size: var(--font-size-lead);
+}
+.article-action button:hover i{
+    color: var(--primary);
+    transition: all 0.3s ease-in-out;
+}
+
+.article-action h1{
+    font-size: var(--font-size-lead);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+    font-weight: 600;
+    width: 70%;
+}
+
+.testimonial-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.testimonial-section h1{
+    font-size: var(--font-size-heading-large);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+    text-align: center;
+    padding: 3rem;
+}
+
+.clients-grid{
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 3rem;
+    list-style: none;
+    padding: 5rem;
+}
+
+.client-comment{
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: var(--card);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    border-radius: 2rem;
+    padding: 3rem;
+    gap: 2rem;
+}
+
+.client-comment blockquote{
+    font-size: var(--font-size-body);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.client-comment .client-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.client-desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.client-desc h6{
+    font-size: var(--font-size-body);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+}
+.client-desc time{
+    font-size: var(--font-size-tiny);
+    font-family: 'Geist', sans-serif;
+    color: var(--foreground);
+}
+
+.client-info figure{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.3rem solid var(--secondary);
+}
+
+.client-info img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-section{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--primary);
+    padding: 5rem 10rem;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    flex: 1 1 40%;
+    min-width: 35rem;
+    padding: 3rem;
+}
+
+.contact-form h2{
+    font-size: var(--font-size-heading-medium);
+    font-family: 'Geist', sans-serif;
+    color: var(--primary-foreground);
+    text-align: center;
+}
+
+.contact-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.contact-form label{
+    font-size: var(--font-size-small);
+    font-family: 'Geist mono', sans-serif;
+    color: var(--primary-foreground);
+}
+
+.contact-form input, .contact-form textarea{
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-bottom: solid 0.2rem var(--primary-foreground);
+    font-size: var(--font-size-body);
+    font-family: 'Geist', sans-serif;
+    color: var(--secondary);
+    background-color: transparent;
+}
+
+.contact-form textarea{
+    min-height: 10rem;
+    max-height: 20rem;
+    resize: vertical;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder{
+    color: var(--primary-foreground);
+    font-family: 'Geist mono', sans-serif;
+    font-size: var(--font-size-small);
+    opacity: 0.7;
+}
+
+.contact-form input:focus, .contact-form textarea:focus{
+    outline: none;
+    border-bottom: solid 0.2rem var(--secondary);
+}
+
+.contact-form button{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.map-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex: 1 1 40%;
+    min-width: 35rem;
+    padding: 3rem;
+}
+
+.map-section h2{
+    font-size: var(--font-size-heading-medium);
+    font-family: 'Geist', sans-serif;
+    color: var(--primary-foreground);
+    text-align: center;
+}
+
+.map-container{
+    width: 100%;
+    height: 100%;
+    min-height: 40rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+footer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 4rem;
+    background: var(--foreground);
+    color: var(--primary-foreground);
+    padding: 8rem 4rem 4rem 4rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    z-index: 1;
+}
+
+footer section h2 {
+    font-size: var(--font-size-large);
+    font-family: 'Geist', sans-serif;
+    color: var(--primary-foreground);
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+footer section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+    height: 0.2rem;
+    background-color: var(--secondary);
+}
+
+footer section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+footer section:nth-child(1) {
+    grid-column: span 2;
+}
+
+footer section:nth-child(1) address {
+    font-style: normal;
+    font-family: 'Geist', sans-serif;
+    font-size: var(--font-size-body);
+    line-height: 2;
+    opacity: 0.9;
+}
+
+footer section:nth-child(4) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+footer section:nth-child(4) p {
+    font-size: var(--font-size-small);
+    opacity: 0.8;
+}
+
+footer section:nth-child(4) nav {
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+}
+
+footer a {
+    text-decoration: none;
+    font-size: var(--font-size-body);
+    font-family: 'Geist', sans-serif;
+    color: var(--primary-foreground);
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: var(--secondary);
+    opacity: 1;
+    transform: translateX(0.5rem);
+}
+
+.about{
+    flex-direction: row-reverse;
+}
+
+.about .hero-graphics figure{
+    height: 50rem;
+    
+}
+
+.about .hero-graphics img{
+    width: 60%;
+    object-fit: cover;
+}
+
+.about .hero-desc h1{
+    color: var(--primary);
+    font-size: var(--font-size-heading-hero);
+    line-height: 1;
+    letter-spacing: -0.1rem;
+}
+
+.about .hero-desc p{
+    font-size: var(--font-size-lead);
+    line-height: 1.6;
+    color: var(--foreground);
+    padding-right: 2rem;
+    text-align: justify;
+}
+ 
+.contact {
+    padding: 5rem;
+}
+
+.contact .contact-section{
+    background-color: var(--card);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);   
+    border: solid 0.2rem var(--border);
+}
+
+.contact .contact-form h2, .contact .map-section h2{
+    color: var(--foreground);
+}
+
+.contact .contact-form label, .contact .contact-form input, .contact .contact-form textarea{
+    color: var(--foreground);
+}
+
+.contact .contact-form input, .contact .contact-form textarea{
+    border-bottom: solid 0.2rem var(--primary);
+}
+
+
+.contact .contact-form input::placeholder, .contact .contact-form textarea::placeholder{
+    color: var(--foreground);
+    opacity: 0.7;
+}
+
+.mobile{
+    display: none;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(30%);
+    }
+}
+
+@media (max-width: 768px) {
+    header{
+        width: 100dvw;
+    }
+    nav{
+        width: 100%;
+        justify-content: center;
+        padding-left: 2rem;
+    }
+
+    main{
+        width: 100dvw;
+    }
+
+    .main-nav{
+        justify-content: center;
+        width: 100%;
+        gap: 2.5rem;
+    }
+
+    .nav-links{
+        flex-wrap: nowrap;
+    }
+
+
+    .nav-icons{
+        display: none;
+    }
+
+    .nav-icons.mobile{
+        display: flex;
+    }
+
+    .hero-desc, .hero-graphics{
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+
+    .hero-graphics figure{
+        border-radius: 1rem;
+    }
+
+    .trend-grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+    }
+
+    .trend-grid li:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .trend-grid li:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .trend-grid li:nth-child(3) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .trend-grid li:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+
+    .contact-section{
+        padding: 3rem 2rem;
+        gap: 2rem;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        padding: 4rem 2rem 2rem 2rem;
+        gap: 2rem;
+    }
+
+    footer section:nth-child(1) {
+        grid-column: span 1;
+    }
+
+    footer section:nth-child(4) {
+        grid-column: span 1;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 2rem;
+        margin-top: 1rem;
+    }
+    
+}
+
+@media (max-width: 560px) {
+
+    nav{
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding-left: 1rem;
+    }
+
+    header{
+        padding: 0;
+    }
+    .main-nav{
+        width: 100%;
+        gap: 1.5rem;
+        justify-content: space-evenly;
+    }
+
+    .title-container h1{
+        display: none;
+    }
+
+
+    .nav-links{
+        gap: 1rem;
+    }
+    .nav-links a{
+        font-size: 1.1rem;
+    }
+
+    .hero-intro{
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .contact-section{
+        padding: 3rem 1rem;
+    }
+
+    .contact-form form{
+        width: 70%;
+    }
+
+    .contact.contact-section{
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+    }
+
+    .map-section{
+        min-width: 100%;
+    }
+
+    footer{
+        width: 100dvw;
+    }
+}
