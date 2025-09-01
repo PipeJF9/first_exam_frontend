@@ -129,21 +129,101 @@ nav a:hover {
   padding: var(--spacing-lg) var(--spacing-md);
 }
 
-.trend-section ul {
-  display: flex;
+.trend-section > ul {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 20fr 20fr; /* Filas más altas */
   gap: var(--spacing-md);
-  justify-content: center;
   list-style: none;
+  height: 100%; /* Ocupa toda la altura disponible */
 }
 
-.trend-section li {
-  background: var(--color-light);
-  padding: var(--spacing-sm);
+
+.trend-section ul li:nth-child(1) {
+    grid-column: 1 / 2; /* Ocupa la primera columna */
+    grid-row: 1 / 3;    /* Ocupa ambas filas */
+    background-color: gray;
+    border-radius: var(--radius);
+    padding: var(--spacing-md); /* Más espacio interno */
+    display: flex;
+    flex-direction: column; /* Organiza el h3 y ul verticalmente */
+    align-items: flex-start; /* Alinea a la izquierda */
+    justify-content: flex-start; /* Alinea arriba */
+
+}
+
+/* Segundo elemento li */
+.trend-section ul li:nth-child(2) {
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    grid-row: 1 / 2;    /* Ocupa la primera fila */
+    background-color: gray;
+    border-radius: var(--radius);
+    padding: var(--spacing-md); /* Más espacio interno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Tercer elemento li */
+.trend-section ul li:nth-child(3) {
+    grid-column: 3 / 4; /* Ocupa la tercera columna */
+    grid-row: 1 / 3;    /* Ocupa la primera fila */
+    background-color: gray;
+    border-radius: var(--radius);
+    padding: var(--spacing-md); /* Más espacio interno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trend-section ul li:nth-child(4) {
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    grid-row: 2 / 3;    /* Ocupa la segunda fila */
+    background-color: gray;
+    border-radius: var(--radius);
+    padding: var(--spacing-md); /* Más espacio interno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.trend-section ul li ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none;
+}
+
+.trend-section ul li ul li {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: var(--color-light);
+    border-radius: calc(var(--radius) / 2);
+    font-size: 0.8rem;
+    min-height: 25px;
+}
+
+.trend-section ul li ul li h6 {
+    margin: 0 !important;
+    padding: var(--spacing-xs);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.trend-section ul button {
+  background: var(--color-primary);
+  color: var(--color-light);
+  padding: 0.5rem 1.5rem;
+  border: none;
   border-radius: var(--radius);
-  flex: 1;
-  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 4rem;
 }
-
 /* ===========================
    PRODUCTS GRID
 =========================== */
@@ -207,7 +287,6 @@ nav a:hover {
   color: var(--color-accent);
   font-size: 0.9rem;
 }
-
 
 /* ===========================
    CLIENTS TESTIMONIALS
@@ -316,6 +395,53 @@ footer {
   padding: var(--spacing-sm);
   margin-top: var(--spacing-lg);
 }
+
+.about-us{
+  flex: 1;
+  margin-bottom: 0;
+  border: red 2px solid; /* Temporal para ver el tamaño */
+}
+
+.quick-links{
+  flex: 1;
+  padding: var(--spacing-sm);
+  text-align: left;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.follow-us{
+  flex: 1;
+  padding: var(--spacing-sm);
+}
+
+.follow-us nav a {
+  margin-right: var(--spacing-sm);
+  display: flex;
+  flex-direction: column-reverse;
+  border: red 2px solid; /* Temporal para ver el tamaño */
+}
+
+.copyright {
+  flex: 1;
+  padding: var(--spacing-sm);
+}
+
+.copyright p {
+  margin: 0;
+}
+
+.copyright nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
 /* ===========================
    RESPONSIVE
 =========================== */
